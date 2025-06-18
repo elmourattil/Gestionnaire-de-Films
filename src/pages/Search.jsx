@@ -16,12 +16,14 @@ import FilmCard from '../components/FilmCard'
 const Search = () => {
   const [query, setQuery] = useState('')
   const [results, setResults] = useState([])
+  const [hasSearched, setHasSearched] = useState(false)
 
   const handleSearch = async (e) => {
     e.preventDefault()
     if (!query.trim()) return
     const films = await searchMovies(query)
     setResults(films)
+    setHasSearched(true)
   }
 
   return (
@@ -81,23 +83,36 @@ const Search = () => {
         </CardContent>
       </Card>
 
-      {results.length > 0 && (
+      {hasSearched && (
         <Box sx={{ mt: 6 }}>
-          <Typography
-            variant="h5"
-            gutterBottom
-            sx={{ textAlign: 'center', fontWeight: 600, mb: 3 }}
-          >
-            🎞️ Résultats de la recherche
-          </Typography>
+          {results.length > 0 ? (
+            <>
+              <Typography
+                variant="h5"
+                gutterBottom
+                sx={{ textAlign: 'center', fontWeight: 600, mb: 3 }}
+              >
+                🎞️ Résultats de la recherche
+              </Typography>
 
-          <Grid container spacing={3}>
-            {results.map(film => (
-              <Grid item xs={12} sm={6} md={4} lg={3} key={film.id}>
-                <FilmCard film={film} />
+              <Grid container spacing={3}>
+                {results.map((film) => (
+                  <Grid item xs={12} sm={6} md={4} lg={3} key={film.id}>
+                    <FilmCard film={film} />
+                  </Grid>
+                ))}
               </Grid>
-            ))}
-          </Grid>
+            </>
+          ) : (
+            <Typography
+              variant="h6"
+              align="center"
+              color="text.secondary"
+              sx={{ mt: 4 }}
+            >
+              Aucun film trouvé pour votre recherche.
+            </Typography>
+          )}
         </Box>
       )}
     </Box>

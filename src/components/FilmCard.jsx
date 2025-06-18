@@ -31,7 +31,7 @@ const FilmCard = ({ film }) => {
         }
       }}
     >
-      {/* Zone image */}
+      
       <Box sx={{ height: 300, overflow: 'hidden' }}>
         <CardMedia
           component="img"
@@ -47,7 +47,7 @@ const FilmCard = ({ film }) => {
         />
       </Box>
 
-      {/* Contenu texte */}
+     
       <CardContent sx={{ flexGrow: 1, p: 2 }}>
         <Box display="flex" alignItems="center" gap={1} mb={1}>
           <Movie fontSize="small" color="primary" />
