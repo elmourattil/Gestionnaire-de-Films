@@ -37,9 +37,9 @@ const Home = () => {
   }
 
   return (
-    <Container maxWidth="xl" sx={{ mt: 5, px: 2 }}>
+    <Container maxWidth="xl" sx={{ mt: 5, px: { xs: 1, sm: 2 } }}>
       <Box textAlign="center" mb={4}>
-        <Typography variant="h4" fontWeight="bold" color="primary" gutterBottom>
+        <Typography className="section-title" variant="h4" fontWeight="bold" gutterBottom>
           <Whatshot sx={{ mr: 1, verticalAlign: 'middle' }} />
           Films Populaires
         </Typography>
@@ -53,16 +53,9 @@ const Home = () => {
       
       {localFilms.length > 0 && (
         <Box mb={3}>
-          <Typography
-  variant="h6"
-  sx={{
-    mb: 1,
-    fontWeight: 'bold',
-    color: 'warning.main'
-  }}
->
-  🎬 Mes films ajoutés manuellement
-</Typography>
+          <Typography variant="h6" sx={{ mb: 1, fontWeight: 'bold', color: 'warning.main' }}>
+            🎬 Mes films ajoutés manuellement
+          </Typography>
 
           <Grid container spacing={3} columns={12}>
             {localFilms.map((film) => (
@@ -82,7 +75,7 @@ const Home = () => {
           Aucun film à afficher.
         </Typography>
       ) : (
-        <Grid container spacing={3} columns={12}>
+        <Grid container spacing={{ xs: 2, sm: 3 }} columns={12}>
           {apiFilms.map((film) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={film.id} sx={{ display: 'flex' }}>
               <FilmCard film={film} />
@@ -92,7 +85,7 @@ const Home = () => {
       )}
 
     
-      <Box sx={{ display: 'flex', justifyContent: 'center', mt: 5, gap: 2 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'center', mt: 5, gap: 2, flexWrap: 'wrap' }}>
         <Button
           variant="outlined"
           onClick={handlePrev}

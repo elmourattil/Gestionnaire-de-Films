@@ -8,14 +8,14 @@ import FilmDetails from './pages/FilmDetails'
 
 const theme = createTheme({
   palette: {
-    mode: 'light',
-    primary: { main: '#1976d2' },
-    secondary: { main: '#f9f9f9' },
-    background: { default: '#f9f9f9' }
+    mode: 'dark',
+    primary: { main: '#2563eb' },
+    secondary: { main: '#94a3b8' },
+    background: { default: '#0b1020', paper: '#0f172a' }
   },
   typography: {
-    fontFamily: 'Roboto, sans-serif',
-    h4: { fontWeight: 600 }
+    fontFamily: 'Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif',
+    h4: { fontWeight: 700 }
   }
 })
 
@@ -23,7 +23,7 @@ const App = () => (
   <ThemeProvider theme={theme}>
     <CssBaseline />
     <Navbar />
-    <Container sx={{ mt: 4 }}>
+    <Container className="app-container" sx={{ mt: 4 }}>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/recherche' element={<Search />} />

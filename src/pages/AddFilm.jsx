@@ -37,13 +37,13 @@ const AddFilm = () => {
   }
 
   return (
-    <Box sx={{ mt: 6, px: 2 }}>
+    <Box sx={{ mt: 6, px: { xs: 1, sm: 2 } }}>
       <Grid container justifyContent="center">
         <Grid item xs={12} md={7} lg={6}>
           <Card elevation={6} sx={{ borderRadius: 3 }}>
-            <CardContent sx={{ p: 4 }}>
+            <CardContent sx={{ p: { xs: 2.5, sm: 4 } }}>
               <Box textAlign="center" mb={3}>
-                <Typography variant="h4" fontWeight="bold" color="primary" gutterBottom>
+                <Typography variant="h4" fontWeight="bold" className="section-title" gutterBottom>
                   <AddCircle sx={{ fontSize: 36, verticalAlign: 'middle', mr: 1 }} />
                   Ajouter un Film
                 </Typography>

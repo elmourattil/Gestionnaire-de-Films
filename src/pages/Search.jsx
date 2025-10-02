@@ -27,13 +27,13 @@ const Search = () => {
   }
 
   return (
-    <Box sx={{ mt: 6, px: 2 }}>
+    <Box sx={{ mt: 6, px: { xs: 1, sm: 2 } }}>
       <Card
         elevation={5}
         sx={{
-          maxWidth: 720,
+          maxWidth: 760,
           mx: 'auto',
-          p: 4,
+          p: { xs: 2.5, sm: 4 },
           borderRadius: 4,
           backgroundColor: 'background.paper'
         }}
@@ -41,7 +41,7 @@ const Search = () => {
         <CardContent>
           <Box display="flex" alignItems="center" justifyContent="center" mb={2}>
             <SearchIcon color="primary" sx={{ fontSize: 32, mr: 1 }} />
-            <Typography variant="h4" fontWeight="bold" color="primary">
+            <Typography variant="h4" fontWeight="bold" className="section-title">
               Recherche de Films
             </Typography>
           </Box>
@@ -95,7 +95,7 @@ const Search = () => {
                 🎞️ Résultats de la recherche
               </Typography>
 
-              <Grid container spacing={3}>
+              <Grid container spacing={{ xs: 2, sm: 3 }}>
                 {results.map((film) => (
                   <Grid item xs={12} sm={6} md={4} lg={3} key={film.id}>
                     <FilmCard film={film} />

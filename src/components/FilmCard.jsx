@@ -16,68 +16,26 @@ const FilmCard = ({ film }) => {
     : 'https://upload.wikimedia.org/wikipedia/commons/a/af/Image_non_disponible.png'
 
   return (
-    <Card
-      elevation={5}
-      sx={{
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        transition: 'all 0.3s ease',
-        borderRadius: 3,
-        overflow: 'hidden',
-        '&:hover': {
-          transform: 'translateY(-4px)',
-          boxShadow: 8
-        }
-      }}
-    >
-      
-      <Box sx={{ height: 300, overflow: 'hidden' }}>
-        <CardMedia
-          component="img"
-          image={posterUrl}
-          alt={film.title}
-          sx={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            transition: 'transform 0.4s',
-            '&:hover': { transform: 'scale(1.05)' }
-          }}
-        />
-      </Box>
+    <Card elevation={6} className="film-card" sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+      <CardMedia component="img" image={posterUrl} alt={film.title} className="film-media" />
 
-     
-      <CardContent sx={{ flexGrow: 1, p: 2 }}>
-        <Box display="flex" alignItems="center" gap={1} mb={1}>
+      <CardContent sx={{ flexGrow: 1, p: 2.2 }}>
+        <Box display="flex" alignItems="center" gap={1} mb={1.2}>
           <Movie fontSize="small" color="primary" />
-          <Typography variant="h6" fontWeight="600" noWrap>
-            {film.title}
-          </Typography>
+          <Typography variant="h6" fontWeight="700" noWrap>{film.title}</Typography>
         </Box>
 
         {film.isLocal && (
-          <Chip
-            label="Ajouté manuellement"
-            color="secondary"
-            size="small"
-            variant="outlined"
-            sx={{ mb: 2 }}
-          />
+          <Chip label="Ajouté manuellement" color="secondary" size="small" variant="outlined" sx={{ mb: 1.5 }} />
         )}
 
         <Button
           variant="contained"
-          size="small"
+          size="medium"
           fullWidth
           component={Link}
           to={`/film/${film.id}`}
-          sx={{
-            mt: 1,
-            textTransform: 'none',
-            fontWeight: 500,
-            borderRadius: 2
-          }}
+          sx={{ mt: 1, textTransform: 'none', fontWeight: 600, borderRadius: 2 }}
         >
           Voir détails
         </Button>

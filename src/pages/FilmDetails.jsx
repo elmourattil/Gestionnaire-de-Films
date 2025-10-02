@@ -68,9 +68,10 @@ const FilmDetails = () => {
         maxWidth: 1100,
         mx: 'auto',
         mt: 5,
-        p: 2,
+        p: { xs: 2, sm: 3 },
         borderRadius: 4,
-        boxShadow: 6
+        boxShadow: 6,
+        backgroundColor: 'background.paper'
       }}
     >
       <Grid container spacing={4} alignItems="stretch">
@@ -90,7 +91,7 @@ const FilmDetails = () => {
 
         <Grid item xs={12} md={8}>
           <CardContent>
-            <Typography variant="h4" fontWeight="bold" color="primary" gutterBottom>
+            <Typography variant="h4" fontWeight="bold" className="section-title" gutterBottom>
               {film.title}
             </Typography>
 
